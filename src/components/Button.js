@@ -16,5 +16,5 @@ Button.propTypes ={
     color: PropTypes.string,
     onClick :PropTypes.func
 }
-
+or
 export default Button
