@@ -30,14 +30,31 @@ const App=() =>{
 const deleteTask= (id) =>{
   setTasks(tasks.filter( (task) => task.id !== id))
 }
+
+//TOGGLE REMINDER _double click we wanna change the reminder to opposite of what it already is
+const toggleReminder = (id) => {
+ setTasks(
+  tasks.map(( task) =>
+      task.id === id ? {...task, reminder :
+      !task.reminder} : task
+    )
+  )
+    
+}
+
   return (
     <div className="container">
-     <Header/>
-     {tasks.length > 0 ? <Tasks tasks={tasks} onDelete =
-     {deleteTask}/> : 'No task to show'}  
+      <Header/>
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete =
+        {deleteTask} onToggle={toggleReminder}/> 
+      ): (
+        'No task to show'
+      )}  
     </div>
-  );
+  )
 }
+
 
 // class App extends React.Component{
 //   render(){
